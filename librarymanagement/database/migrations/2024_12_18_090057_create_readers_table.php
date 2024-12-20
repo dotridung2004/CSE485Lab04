@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('readers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('birthday');
-            $table->string('');
+            $table->date('birthday');
+            $table->string('address');
+            $table->string('phone');
             $table->timestamps();
         });
     }
