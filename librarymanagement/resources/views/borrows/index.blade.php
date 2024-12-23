@@ -33,6 +33,26 @@
                                     data-bs-toggle="modal" 
                                     data-bs-target="#btn-delete-Modal-{{ $borrow->id }}">
                                 </td>
+                                <div class="modal fade" id="btn-delete-Modal-{{ $borrow->id }}" tabindex="-1" aria-labelledby="btn-delete-ModalLabel-{{ $borrow->id }}" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <form action="{{route('borrows.destroy',$borrow -> id)}}" method="POST" >
+                                                @csrf
+                                                @method('DELETE')
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="btn-delete-ModalLabel-{{ $borrow->id }}">Xóa mượn trả sách</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <h5 for="" class="text-center">Bạn có chắc chắn muốn xóa bản ghi</h5>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                                    <input type="submit" class="btn btn-primary" value="Xóa bản ghi" name="btn-delete">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </tr>
                         @endforeach
                     </tbody>
@@ -236,30 +256,6 @@
                     });
                 </script>
             @endif
-
-            <!-- Modal-delete -->
-            @foreach ($borrows as $borrow)
-            <div class="modal fade" id="btn-delete-Modal-{{ $borrow->id }}" tabindex="-1" aria-labelledby="btn-delete-ModalLabel-{{ $borrow->id }}" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <form action="{{route('borrows.destroy',$borrow -> id)}}" method="POST" >
-                            @csrf
-                            @method('DELETE')
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="btn-delete-ModalLabel-{{ $borrow->id }}">Xóa mượn trả sách</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <h5 for="" class="text-center">Bạn có chắc chắn muốn xóa bản ghi</h5>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                                <input type="submit" class="btn btn-primary" value="Xóa bản ghi" name="btn-delete">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            @endforeach
 
             <!-- thông báo xóa -->
             @if(session('delete'))

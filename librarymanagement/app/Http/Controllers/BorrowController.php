@@ -13,7 +13,8 @@ class BorrowController extends Controller
      */
     public function index()
     {
-        $borrows = Borrow::orderBy('created_at','desc') -> get();
+        $borrowsReverse = Borrow::all();
+        $borrows = $borrowsReverse->reverse();
         $readers = Reader::all();
         $books = Book::all();
         return view('borrows.index',compact('borrows','readers','books'));
