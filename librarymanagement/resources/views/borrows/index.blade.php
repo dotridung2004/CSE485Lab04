@@ -262,30 +262,30 @@
             @endforeach
 
             <!-- thông báo xóa -->
-            <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="deleteModalLabel">Thông báo</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body text-center">
-                            {{ session('delete') }}
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Đóng</button>
+            @if(session('delete'))
+                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteModalLabel">Thông báo</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-center">
+                                {{ session('delete') }}
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Đóng</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-                @if(session('delete'))
-                    <script>
-                        document.addEventListener('DOMContentLoaded', function () {
-                            var successModal = new bootstrap.Modal(document.getElementById('deleteModal'));
-                            successModal.show();
-                        });
-                    </script>
-                @endif
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        var successModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+                        successModal.show();
+                    });
+                </script>
+            @endif
         </div>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

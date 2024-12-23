@@ -81,9 +81,8 @@ class BorrowController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(Borrow $borrow)
     {
-        $borrow = Borrow::findOrFail($id);
         $borrow -> delete();
         return redirect() -> route('borrows.index') -> with ('delete','Xóa thành công');
     }
