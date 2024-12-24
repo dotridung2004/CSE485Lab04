@@ -1,15 +1,17 @@
+@extends('layouts.app')
+@section('content')
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="../resources/css/index.css">
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h3 class="text-center m-3">Bảng Mượn Trả Sách</h3>
+                <h3 class="text-center m-2">Quản Lý Mượn Trả Sách</h3>
                 <input type="submit" value="Thêm mới" name="btn-create" class="btn btn-outline-primary m-3" data-bs-toggle="modal" data-bs-target="#btn-add-Modal">
                 <table class="table table-bordered text-center">
                     <thead>
                         <tr>
                             <th>Mã Mượn Trả</th>
-                            <th>Mã Người đọc</th>
+                            <th>Mã Người Đọc</th>
                             <th>Mã Sách</th>
                             <th>Trạng Thái</th>
                             <th>Hành Động</th>
@@ -58,6 +60,7 @@
                     </tbody>
                 </table>
             </div>
+@endsection
 
             <!-- Modal-ShowBorrow -->
             @foreach ($borrows as $borrow)

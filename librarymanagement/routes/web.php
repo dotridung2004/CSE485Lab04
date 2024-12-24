@@ -9,3 +9,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('borrows',BorrowController::class);
+Route::resource('book', BookController::class);
+Route::resource('reader', ReaderController::class);
